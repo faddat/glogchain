@@ -2,6 +2,7 @@
 db/db.db/
 glogchain
 vendor/
+extensions.json
 
 #vim files#
 *.swp
