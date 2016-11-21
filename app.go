@@ -32,6 +32,7 @@ func (app *GlogChainApp) SetOption(key string, value string) (log string) {
 
 func (app *GlogChainApp) AppendTx(tx []byte) types.Result {
 	// tx is json string, need to convert to text and then parse into json object
+	// yes, and the conversions are crazy-annoying in go.  Am I right?
 	jsonstring := string(tx[:])
 
 	obj, err := protocol.UnMarshal(jsonstring)

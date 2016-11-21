@@ -1,9 +1,0 @@
-package: github.com/baabeetaa/glogchain
-import:
-- package: github.com/extemporalgenome/slug
-- package: github.com/tendermint/go-common
-- package: github.com/tendermint/tmsp
-  subpackages:
-  - server
-  - types
-- package: glogchain/protocol
