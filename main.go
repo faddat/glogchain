@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	addrPtr := flag.String("addr", "tcp://0.0.0.0:46658", "Listen address")
+	addrPtr := flag.Strinsg("addr", "tcp://0.0.0.0:46658", "Listen address")
 
 	flag.Parse()
 	app := NewGlogChainApp()

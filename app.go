@@ -4,13 +4,15 @@ import (
 	"encoding/binary"
 	"fmt"
 
+	"log"
+
+	"github.com/baabeetaa/glogchain/blog"
+	"github.com/baabeetaa/glogchain/protocol"
 	. "github.com/tendermint/go-common"
 	"github.com/tendermint/tmsp/types"
-	"glogchain/protocol"
-	"log"
-	"glogchain/blog"
 )
 
+//structure for holding golgchain app types
 type GlogChainApp struct {
 	hashCount int
 	txCount   int
@@ -32,14 +34,14 @@ func (app *GlogChainApp) AppendTx(tx []byte) types.Result {
 	// tx is json string, need to convert to text and then parse into json object
 	jsonstring := string(tx[:])
 
-	obj , err := protocol.UnMarshal(jsonstring)
+	obj, err := protocol.UnMarshal(jsonstring)
 
 	if err != nil {
 		log.Fatal(err)
 		return types.ErrEncodingError
 	}
 
-	switch v:=obj.(type) {
+	switch v := obj.(type) {
 	case protocol.PostOperation:
 		var objPostOperation protocol.PostOperation
 
@@ -72,6 +74,7 @@ func (app *GlogChainApp) Commit() types.Result {
 	}
 }
 
+//Query tells the user that the query they are requesting isn't supported.
 func (app *GlogChainApp) Query(query []byte) types.Result {
 	return types.NewResultOK(nil, fmt.Sprintf("Query is not supported"))
 }
