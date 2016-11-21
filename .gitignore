@@ -1,8 +1,8 @@
 # tendermint go db #
 db/db.db/
-glogchain
+./glogchain
 vendor/
-extensions.json
+./extensions.json
 
 #vim files#
 *.swp
